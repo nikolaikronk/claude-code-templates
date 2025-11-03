@@ -242,6 +242,15 @@ class App {
           throw new Error('AgentsPage component not available. Check if components/AgentsPage.js is loaded.');
         }
         break;
+
+      case 'plugins':
+        if (typeof PluginsPage !== 'undefined') {
+          this.components.pages.plugins = new PluginsPage(container, this.services);
+          await this.components.pages.plugins.initialize();
+        } else {
+          throw new Error('PluginsPage component not available. Check if components/PluginsPage.js is loaded.');
+        }
+        break;
         
       default:
         throw new Error(`Unknown page: ${page}`);
